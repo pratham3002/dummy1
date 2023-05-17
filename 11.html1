@@ -1,0 +1,247 @@
+import { Component } from 'react';
+import CheckboxTree from 'react-checkbox-tree';
+import 'react-checkbox-tree/lib/react-checkbox-tree.css';
+import './custom.css';
+import {
+  MdCheckBox,
+  MdCheckBoxOutlineBlank,
+  MdChevronRight,
+  MdKeyboardArrowDown,
+  MdAddBox,
+  MdIndeterminateCheckBox,
+  MdFolder,
+  MdFolderOpen,
+  MdInsertDriveFile
+} from 'react-icons/md';
+
+const nodes = [
+  {
+    value: 'Administrator',
+    label: 'Administrator',
+    children: [
+      {
+        value: 'Administrator-Users',
+        label: 'Users',
+        children: [
+          {
+            value: 'Administrator-Users-View',
+            label: 'View'
+          },
+          {
+            value: 'Administrator-Users-Create',
+            label: 'Create'
+          },
+          {
+            value: 'Administrator-Users-Update',
+            label: 'Update'
+          },
+          {
+            value: 'Administrator-Users-Delete',
+            label: 'Delete'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-Courses',
+        label: 'Courses',
+        children: [
+          {
+            value: 'Administrator-Courses-View',
+            label: 'View'
+          },
+          {
+            value: 'Administrator-Courses-Create',
+            label: 'Create'
+          },
+          {
+            value: 'Administrator-Courses-Update',
+            label: 'Update'
+          },
+          {
+            value: 'Administrator-Courses-Delete',
+            label: 'Delete'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-Groups',
+        label: 'Groups',
+        children: [
+          {
+            value: 'Administrator-Groups-View',
+            label: 'View'
+          },
+          {
+            value: 'Administrator-Groups-Create',
+            label: 'Create'
+          },
+          {
+            value: 'Administrator-Groups-Update',
+            label: 'Update'
+          },
+          {
+            value: 'Administrator-Groups-Delete',
+            label: 'Delete'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-Categories',
+        label: 'Categories',
+        children: [
+          {
+            value: 'Administrator-Categories-View',
+            label: 'View'
+          },
+          {
+            value: 'Administrator-Categories-Create',
+            label: 'Create'
+          },
+          {
+            value: 'Administrator-Categories-Update',
+            label: 'Update'
+          },
+          {
+            value: 'Administrator-Categories-Delete',
+            label: 'Delete'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-Branches',
+        label: 'Branches',
+        children: [
+          {
+            value: 'Administrator-Branches-View',
+            label: 'View'
+          },
+          {
+            value: 'Administrator-Branches-Create',
+            label: 'Create'
+          },
+          {
+            value: 'Administrator-Branches-Update',
+            label: 'Update'
+          },
+          {
+            value: 'Administrator-Branches-Delete',
+            label: 'Delete'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-Events',
+        label: 'Events engine',
+        children: [
+          {
+            value: 'Administrator-Events-Notifications',
+            label: 'Notifications'
+          },
+          {
+            value: 'Administrator-Events-Automations',
+            label: 'Automations'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-ImportExport',
+        label: 'Import - Export',
+        children: [
+          {
+            value: 'Administrator-ImportExport-Import',
+            label: 'Import'
+          },
+          {
+            value: 'Administrator-ImportExport-Export',
+            label: 'Export'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-UserTypes',
+        label: 'User types',
+        children: [
+          {
+            value: 'Administrator-UserTypes-View',
+            label: 'View'
+          },
+          {
+            value: 'Administrator-UserTypes-Create',
+            label: 'Create'
+          },
+          {
+            value: 'Administrator-UserTypes-Update',
+            label: 'Update'
+          },
+          {
+            value: 'Administrator-UserTypes-Delete',
+            label: 'Delete'
+          }
+        ]
+      },
+      {
+        value: 'Administrator-AccountSettings',
+        label: 'Account & Settings',
+        children: [
+          {
+            value: 'Administrator-AccountSettings-View',
+            label: 'View'
+          },
+          {
+            value: 'Administrator-AccountSettings-Update',
+            label: 'Update'
+          },
+          {
+            value: 'Administrator-AccountSettings-Gamification',
+            label: 'Gamification'
+          },
+          {
+            value: 'Administrator-AccountSettings-Ecommerce',
+            label: 'E-commerce'
+          },
+          {
+            value: 'Administrator-AccountSettings-Domain',
+            label: 'Domain'
+          },
+          {
+            value: 'Administrator-AccountSettings-Subscription',
+            label: 'Subscription'
+          }
+        ]
+      }
+    ]
+  }
+];
+class ComponentCheckbox extends Component {
+  state = {
+    checked: ['General-Profile-Read','General-Profile-Update','General-Profile-ResetPassword','General-Help','General-Timeline'],
+    expanded: ['Administrator','Instructor','Learner','General']
+  };
+
+  render() {
+    const icons = {
+      check: <MdCheckBox className="rct-icon rct-icon-check" />,
+      uncheck: <MdCheckBoxOutlineBlank className="rct-icon rct-icon-uncheck" />,
+      halfCheck: <MdIndeterminateCheckBox className="rct-icon rct-icon-half-check" />,
+      expandClose: <MdChevronRight className="rct-icon rct-icon-expand-close" />,
+      expandOpen: <MdKeyboardArrowDown className="rct-icon rct-icon-expand-open" />,
+      expandAll: <MdAddBox className="rct-icon rct-icon-expand-all" />,
+      collapseAll: <MdIndeterminateCheckBox className="rct-icon rct-icon-collapse-all" />,
+      parentClose: <MdFolder className="rct-icon rct-icon-parent-close" />,
+      parentOpen: <MdFolderOpen className="rct-icon rct-icon-parent-open" />,
+      leaf: <MdInsertDriveFile className="rct-icon rct-icon-leaf-close" />
+    };
+    console.log(this.state);
+    return (
+      <CheckboxTree
+        nodes={nodes}
+        checked={this.state.checked}
+        expanded={this.state.expanded}
+        onCheck={(checked) => this.setState({ checked })}
+        onExpand={(expanded) => this.setState({ expanded })}
+        icons={icons}
+      />
+    );
+  }
+}
+export default ComponentCheckbox;
